@@ -14,27 +14,12 @@
             justify-content: center;
             height: 100vh;
             overflow: hidden;
-            position: relative;
-        }
-
-        @keyframes blink {
-            from { background-color: #0f0; }
-            to { background-color: #000; }
         }
 
         .container {
             text-align: center;
-        }
-
-        .container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            animation: blink 1s infinite;
+            position: relative;
+            z-index: 2;
         }
 
         img {
@@ -88,9 +73,25 @@
                 font-size: 0.7em;
             }
         }
+
+        #background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        #background pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
     </style>
 </head>
 <body>
+    <div id="background"></div>
     <div class="container">
         <img src="https://media.licdn.com/dms/image/D560BAQGBCM5hS0vOUQ/company-logo_200_200/0/1683554313312?e=1694044800&v=beta&t=mOUjg6GR6jHkHwVeMIjq_kVgt_fzz8Hg-iPULFpmLEs" alt="SANIK Logo">
         <h1>SANIK</h1>
@@ -100,5 +101,29 @@
             <a href="https://github.com/sanik-dev" target="_blank">GitHub</a> | <a href="https://www.linkedin.com/company/sanikdev/" target="_blank">LinkedIn</a>
         </div>
     </div>
+    <script>
+        const background = document.querySelector('#background');
+        const lines = ['SANIK', 'Shaping the Future, One Pixel at a Time', 'Sanchit Sharma', 'Nikith Kaluwitharana'];
+        let index = 0;
+
+        function typeLine() {
+            const line = lines[index % lines.length];
+            const pre = document.createElement('pre');
+            pre.textContent = '> ';
+            background.appendChild(pre);
+            let charIndex = 0;
+            const intervalId = setInterval(() => {
+                pre.textContent += line[charIndex++];
+                if (charIndex > line.length) {
+                    clearInterval(intervalId);
+                    setTimeout(() => background.removeChild(pre), 3000);
+                    setTimeout(typeLine, 500);
+                }
+            }, 100);
+            index++;
+        }
+
+        typeLine();
+    </script>
 </body>
 </html>
