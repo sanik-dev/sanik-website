@@ -103,7 +103,34 @@
     </div>
     <script>
         const background = document.querySelector('#background');
-        const lines = ['SANIK', 'Shaping the Future, One Pixel at a Time', 'Sanchit Sharma', 'Nikith Kaluwitharana'];
+        const lines = [
+  'SANIK',
+  'Shaping the Future, One Pixel at a Time',
+  'Sanchit Sharma',
+  'Nikith Kaluwitharana',
+  'Executing: build_future.py',
+  'Compiling... 100%',
+  'Deploying to production...',
+  'New feature: teleportation API',
+  'Bug fixed: coffee machine',
+  'Commit: "Refactored time travel algorithm"',
+  'Test: All tests passed. Including Turing test.',
+  'Warning: Low coffee level',
+  'Info: Time Travel API is deprecated',
+  'Debug: Found a bug... Squashed it.',
+  'Uploading to the cloud...',
+  'Algorithm complete: Cure for Monday blues',
+  'Remember to git commit or you will git regret it',
+  'Why don\'t programmers like nature? It has too many bugs.',
+  'Error: Too many jokes in the code.',
+  'Starting SANIK OS...',
+  'Command: brew coffee',
+  'Command: play_music()',
+  'Fetching from database: WorldPeaceSolution',
+  'SANIK AI says: "Hello, world!"',
+  'Caution: Developers at work.'
+];
+
         let index = 0;
 
         function typeLine() {
@@ -113,8 +140,9 @@
             background.appendChild(pre);
             let charIndex = 0;
             const intervalId = setInterval(() => {
-                pre.textContent += line[charIndex++];
-                if (charIndex > line.length) {
+                if (charIndex < line.length) {
+                    pre.textContent += line[charIndex++];
+                } else {
                     clearInterval(intervalId);
                     setTimeout(() => background.removeChild(pre), 3000);
                     setTimeout(typeLine, 500);
