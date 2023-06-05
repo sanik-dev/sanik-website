@@ -144,8 +144,8 @@
                     pre.textContent += line[charIndex++];
                 } else {
                     clearInterval(intervalId);
-                    setTimeout(() => background.removeChild(pre), 3000);
-                    setTimeout(typeLine, 500);
+                    setTimeout(() => background.removeChild(pre), 10000);
+                    setTimeout(typeLine, 100);
                 }
             }, 100);
             index++;
