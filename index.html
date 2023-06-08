@@ -2,7 +2,14 @@
 <html>
 <head>
     <title>SANIK</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <style>
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
         body {
             background: #000;
             color: #0f0;
@@ -152,6 +159,43 @@
         }
 
         typeLine();
+        
+        // Begin WebGL Water Effect
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        const geometry = new THREE.PlaneGeometry(70, 70, 32, 32);
+        const material = new THREE.MeshBasicMaterial({
+            color: 0xffffff,
+            wireframe: true
+        });
+        const plane = new THREE.Mesh(geometry, material);
+        scene.add(plane);
+        camera.position.z = 50;
+
+        const animate = () => {
+            requestAnimationFrame(animate);
+            plane.geometry.vertices.map(v => {
+                const dist = new THREE.Vector2(v.x, v.y).length();
+                const disp = 0.5 * Math.sin(dist / -2 - (Date.now() * 0.001));
+                v.z = disp;
+            });
+            plane.geometry.verticesNeedUpdate = true;
+            renderer.render(scene, camera);
+        };
+
+        animate();
+
+        window.addEventListener('mousemove', (event) => {
+            plane.material.color.setHex(Math.random() * 0xffffff);
+            plane.geometry.vertices.map(v => {
+                const dist = new THREE.Vector2(v.x - event.clientX, v.y - event.clientY).length();
+                v.z = 0.5 * Math.sin(dist / -2 - (Date.now() * 0.001));
+            });
+        });
     </script>
 </body>
 </html>
