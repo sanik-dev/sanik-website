@@ -4,9 +4,27 @@
     <title>SANIK</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <style>
-      
+        @keyframes rainbowGradient {
+            0%   { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
         body {
-            background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+            background: linear-gradient(to right, 
+         red, 
+         orange, 
+         yellow, 
+         green, 
+         blue, 
+         indigo, 
+         violet,
+         red,      /* Red added again to make the transition smooth */
+         orange,   /* and loop correctly at the end */
+         yellow
+         );
+
+         animation: rainbowGradient 10s ease infinite;
+         
             color: #0f0;
             font-family: monospace;
             margin: 0;
