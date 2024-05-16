@@ -4,7 +4,6 @@
     <title>SANIK</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <style>
-      
         body {
             background: #000;
             color: #0f0;
@@ -16,12 +15,14 @@
             justify-content: center;
             height: 100vh;
             overflow: hidden;
+            flex-direction: column;
         }
 
         .container {
             text-align: center;
             position: relative;
             z-index: 2;
+            padding: 0 20px;
         }
 
         img {
@@ -52,6 +53,33 @@
             margin: 0 10px;
         }
 
+        .projects {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .projects-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .project {
+            margin-bottom: 15px;
+        }
+
+        .project-title {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .project-description {
+            font-size: 1em;
+            margin-top: 5px;
+            text-align: center;
+        }
+
         @media only screen and (max-width: 600px) {
             .container {
                 padding: 0 20px;
@@ -73,6 +101,18 @@
 
             .owners {
                 font-size: 0.7em;
+            }
+
+            .projects-title {
+                font-size: 1.3em;
+            }
+
+            .project-title {
+                font-size: 1em;
+            }
+
+            .project-description {
+                font-size: 0.9em;
             }
         }
 
@@ -101,6 +141,21 @@
         <div class="owners">Co-owned by Sanchit Sharma and Nikith Kaluwitharana</div>
         <div class="social-links">
             <a href="https://github.com/sanik-dev" target="_blank">GitHub</a> | <a href="https://www.linkedin.com/company/sanikdev/" target="_blank">LinkedIn</a>
+        </div>
+        <div class="projects">
+            <div class="projects-title">Projects</div>
+            <div class="project">
+                <div class="project-title"><a href="https://github.com/sanik-dev/Teichopsia" target="_blank">Teichopsia</a></div>
+                <div class="project-description">In a jarring shift from the mundane, the protagonist, a young high school student, wakes up in an unfamiliar, dark space, with no recollection of how she got there or what happened prior. Instead of the comforting rituals of school and friendship, she's faced with an environment that's both eerie and inexplicable. Despite the darkness, tiny elements in her surroundings start to exhibit strange distortions. A shimmering light in the distance that keeps changing position, the echo of footsteps where there should be none, and the unsettling feeling that time itself is fractured.</div>
+            </div>
+            <div class="project">
+                <div class="project-title"><a href="https://github.com/sanik-dev/Harmony" target="_blank">Harmony</a></div>
+                <div class="project-description">Harmony is a Nonogram project that blends the excitement of collaborative gameplay with classic cell-based logic puzzles. Players select and solve segments of a larger artwork, with completed sections visible to all participants. The goal is to work together to complete the entire artwork, with a leaderboard showcasing the top solvers.</div>
+            </div>
+            <div class="project">
+                <div class="project-title"><a href="https://example.com/project-c" target="_blank">-</a></div>
+                <div class="project-description">---</div>
+            </div>
         </div>
     </div>
     <script>
@@ -154,9 +209,6 @@
         }
 
         typeLine();
-        
-       
-
     </script>
 </body>
 </html>
