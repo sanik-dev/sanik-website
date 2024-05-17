@@ -2,135 +2,8 @@
 <html>
 <head>
     <title>SANIK</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <style>
-        body {
-            background: #000;
-            color: #0f0;
-            font-family: monospace;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            overflow: hidden;
-            flex-direction: column;
-        }
-
-        .container {
-            text-align: center;
-            position: relative;
-            z-index: 2;
-            padding: 0 20px;
-        }
-
-        img {
-            height: 100px;
-            width: 100px;
-        }
-
-        h1 {
-            margin: 20px 0;
-        }
-
-        p {
-            margin: 0;
-            font-size: 1.2em;
-        }
-
-        .owners {
-            font-size: 0.8em;
-            margin-top: 10px;
-        }
-
-        .social-links {
-            margin-top: 20px;
-        }
-
-        .social-links a {
-            color: #0f0;
-            margin: 0 10px;
-        }
-
-        .projects {
-            margin-top: 30px;
-            text-align: center;
-        }
-
-        .projects-title {
-            font-size: 1.5em;
-            font-weight: bold;
-            margin-bottom: 10px;
-            text-align: center;
-        }
-
-        .project {
-            margin-bottom: 15px;
-        }
-
-        .project-title {
-            font-size: 1.2em;
-            font-weight: bold;
-        }
-
-        .project-description {
-            font-size: 1em;
-            margin-top: 5px;
-            text-align: center;
-        }
-
-        @media only screen and (max-width: 600px) {
-            .container {
-                padding: 0 20px;
-                box-sizing: border-box;
-            }
-
-            img {
-                height: 80px;
-                width: 80px;
-            }
-
-            h1 {
-                font-size: 1.5em;
-            }
-
-            p {
-                font-size: 1em;
-            }
-
-            .owners {
-                font-size: 0.7em;
-            }
-
-            .projects-title {
-                font-size: 1.3em;
-            }
-
-            .project-title {
-                font-size: 1em;
-            }
-
-            .project-description {
-                font-size: 0.9em;
-            }
-        }
-
-        #background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        #background pre {
-            white-space: pre-wrap;
-            word-wrap: break-word;
-        }
-    </style>
 </head>
 <body>
     <div id="background"></div>
@@ -145,70 +18,19 @@
         <div class="projects">
             <div class="projects-title">Projects</div>
             <div class="project">
-                <div class="project-title"><a href="https://github.com/sanik-dev/Teichopsia" target="_blank">Teichopsia</a></div>
-                <div class="project-description">In a jarring shift from the mundane, the protagonist, a young high school student, wakes up in an unfamiliar, dark space, with no recollection of how she got there or what happened prior. Instead of the comforting rituals of school and friendship, she's faced with an environment that's both eerie and inexplicable. Despite the darkness, tiny elements in her surroundings start to exhibit strange distortions. A shimmering light in the distance that keeps changing position, the echo of footsteps where there should be none, and the unsettling feeling that time itself is fractured.</div>
+                <div class="project-title" data-description="In a jarring shift from the mundane, the protagonist, a young high school student, wakes up in an unfamiliar, dark space, with no recollection of how she got there or what happened prior. Instead of the comforting rituals of school and friendship, she's faced with an environment that's both eerie and inexplicable. Despite the darkness, tiny elements in her surroundings start to exhibit strange distortions. A shimmering light in the distance that keeps changing position, the echo of footsteps where there should be none, and the unsettling feeling that time itself is fractured."><a href="https://github.com/sanik-dev/Teichopsia" target="_blank">Teichopsia</a></div>
+                <div class="project-description"></div>
             </div>
             <div class="project">
-                <div class="project-title"><a href="https://github.com/sanik-dev/Harmony" target="_blank">Harmony</a></div>
-                <div class="project-description">Harmony is a Nonogram project that blends the excitement of collaborative gameplay with classic cell-based logic puzzles. Players select and solve segments of a larger artwork, with completed sections visible to all participants. The goal is to work together to complete the entire artwork, with a leaderboard showcasing the top solvers.</div>
+                <div class="project-title" data-description="Harmony is a Nonogram project that blends the excitement of collaborative gameplay with classic cell-based logic puzzles. Players select and solve segments of a larger artwork, with completed sections visible to all participants. The goal is to work together to complete the entire artwork, with a leaderboard showcasing the top solvers."><a href="https://github.com/sanik-dev/Harmony" target="_blank">Harmony</a></div>
+                <div class="project-description"></div>
             </div>
             <div class="project">
-                <div class="project-title"><a href="https://example.com/project-c" target="_blank">-</a></div>
-                <div class="project-description">---</div>
+                <div class="project-title" data-description="---"><a href="https://example.com/project-c" target="_blank">-</a></div>
+                <div class="project-description"></div>
             </div>
         </div>
     </div>
-    <script>
-        const background = document.querySelector('#background');
-        const lines = [
-  'SANIK',
-  'Shaping the Future, One Pixel at a Time',
-  'Sanchit Sharma',
-  'Nikith Kaluwitharana',
-  'Executing: build_future.py',
-  'Compiling... 100%',
-  'Deploying to production...',
-  'New feature: teleportation API',
-  'Bug fixed: coffee machine',
-  'Commit: "Refactored time travel algorithm"',
-  'Test: All tests passed. Including Turing test.',
-  'Warning: Low coffee level',
-  'Info: Time Travel API is deprecated',
-  'Debug: Found a bug... Squashed it.',
-  'Uploading to the cloud...',
-  'Algorithm complete: Cure for Monday blues',
-  'Remember to git commit or you will git regret it',
-  'Why don\'t programmers like nature? It has too many bugs.',
-  'Error: Too many jokes in the code.',
-  'Starting SANIK OS...',
-  'Command: brew coffee',
-  'Command: play_music()',
-  'Fetching from database: WorldPeaceSolution',
-  'SANIK AI says: "Hello, world!"',
-  'Caution: Developers at work.'
-];
-
-        let index = 0;
-
-        function typeLine() {
-            const line = lines[index % lines.length];
-            const pre = document.createElement('pre');
-            pre.textContent = '> ';
-            background.appendChild(pre);
-            let charIndex = 0;
-            const intervalId = setInterval(() => {
-                if (charIndex < line.length) {
-                    pre.textContent += line[charIndex++];
-                } else {
-                    clearInterval(intervalId);
-                    setTimeout(() => background.removeChild(pre), 10000);
-                    setTimeout(typeLine, 100);
-                }
-            }, 100);
-            index++;
-        }
-
-        typeLine();
-    </script>
+    <script src="scripts.js"></script>
 </body>
 </html>
